@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: ./api  # The path to the FastAPI Dockerfile
+    container_name: fashion-mnist-api
+    ports:
+      - "8000:8000"
+    restart: always
+
+  web:
+    build:
+      context: ./app  # The path to the Streamlit Dockerfile
+    container_name: fashion-mnist-app
+    ports:
+      - "8501:8501"
+    restart: always
